@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<style>/* this was written by gemini idk css */
+      /* This targets all table data and header cells */
+      td, th {
+        padding-left: 20px;   /* The "4 spaces" gap on the left */
+        padding-right: 20px;  /* Gap on the right */
+        padding-top: 10px;    /* Gap on top */
+        padding-bottom: 10px; /* Gap on bottom */
+        border: 1px solid #ccc;
+      }
+
+      table {
+        border-collapse: collapse; /* Makes borders look like a single line */
+      }
+</style>
+
+
+<body>
+    <center>
+        
+        
+    <h1> DIJKSTRA </h1>
+    <br><br><br><br>
+    Enter number of nodes: <input type="number" id="nodeCount" value="10"> 
+    <button id="nodeCountPress"> Submit </button>
+    
+    <br><br><br><br>
+    From: <input type = "number" id = "fromInput" value = "0">
+    To: <input type = "number" id = "toInput" value = "2">
+    Weight: <input type = "number" id = "weightVal" value = "1">
+    <button id = "addEdgePress"> Add Edge </button>
+
+
+    <br><br><br><br>
+    <h2>Current Graph</h2>
+        <div id = "graphNode">Number of vertices = 10</div>    <!--Shows number of nodes in the graph.-->
+
+
+        <table id = "graphTable" border="1"> <!--Shows table of graph-->
+                <tr>
+                  <th>From</th>
+                  <th> To</th>
+                  <th>Weight</th>
+                </tr>
+        </table>
+
+    <br><br><br><br>
+
+
+    <br><br><br><br>
+    <h2> Dijkstra Result </h2>
+    <div id = "dijkstraShow">
+
+        <table id = "dijkstraTable" border="1">
+                <tr>
+                  <th>From</th>
+                  <th> To</th>
+                  <th>Weight</th>
+                </tr>
+        </table>
+
+    </div>
+
+
+
+    </center>
+    
+<script src="minheap.js"></script>
+<script src="graph.js"></script>
+<script src="simplebackend.js"></script>
+</body>
+
+
+</html>

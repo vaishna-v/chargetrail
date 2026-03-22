@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Map Loader</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0d0d0d;
+      color: #e0e0e0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 16px 24px;
+      background: #111;
+      border-bottom: 1px solid #1e1e1e;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    header h1 {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #00ffaa;
+    }
+
+    header p {
+      font-size: 0.72rem;
+      color: #444;
+      letter-spacing: 2px;
+    }
+
+    /* Map takes remaining space */
+    #map {
+      flex: 1;
+    }
+
+    /* Info bar at the bottom */
+    .info-bar {
+      padding: 10px 24px;
+      background: #111;
+      border-top: 1px solid #1e1e1e;
+      font-size: 0.72rem;
+      color: #444;
+      letter-spacing: 1px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .info-bar span { color: #666; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Map Loader</h1>
+    <p>openstreetmap · leaflet.js · sample markers</p>
+  </header>
+
+  <!-- The map renders inside this div -->
+  <div id="map"></div>
+
+  <div class="info-bar">
+    <div>tiles: <span>OpenStreetMap</span></div>
+    <div>library: <span>Leaflet.js v1.9.4</span></div>
+    <div>markers: <span>5 sample nodes</span></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // ─────────────────────────────────────────────
+    //  INITIALIZE MAP
+    //  setView([latitude, longitude], zoomLevel)
+    //  Centered on India
+    // ─────────────────────────────────────────────
+    const map = L.map('map').setView([22.5, 80.0], 5);
+
+    // ─────────────────────────────────────────────
+    //  TILE LAYER  (the actual map images)
+    //  OpenStreetMap is free to use
+    // ─────────────────────────────────────────────
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    // ─────────────────────────────────────────────
+    //  SAMPLE NODES  (these will later be graph nodes)
+    //  Format: [latitude, longitude, label]
+    // ─────────────────────────────────────────────
+    const nodes = [
+      [28.6139, 77.2090, 'Node 0 – Delhi'],
+      [30.3165, 78.0322, 'Node 1 – Dehradun'],
+      [26.8467, 80.9462, 'Node 2 – Lucknow'],
+      [25.5941, 85.1376, 'Node 3 – Patna'],
+      [22.5726, 88.3639, 'Node 4 – Kolkata'],
+    ];
+
+    // Drop a marker for each node
+    nodes.forEach(([lat, lng, label]) => {
+      L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(`<b>${label}</b>`)   // click marker to see label
+        .bindTooltip(label);            // hover to see label
+    });
+
+    // ─────────────────────────────────────────────
+    //  DRAW A LINE between some nodes
+    //  (just to show it's possible — not a real route yet)
+    // ─────────────────────────────────────────────
+    const routeCoords = nodes.map(([lat, lng]) => [lat, lng]);
+
+    L.polyline(routeCoords, {
+      color: '#00ffaa',
+      weight: 2,
+      dashArray: '6, 8',    // dashed line
+      opacity: 0.6
+    }).addTo(map);
+  </script>
+
+</body>
+</html>
