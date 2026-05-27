@@ -1,18 +1,3 @@
-// dijkstra.js
-//
-// normal dijkstra shortest path
-//
-// this file does NOT handle EV constraints.
-// only shortest distance.
-//
-// ev-specific logic will go in:
-// evdijkstra.js
-//
-// returns:
-// - shortest distance
-// - previous node array
-// - reconstructed path
-
 class Dijkstra
 {
     constructor(graph)
