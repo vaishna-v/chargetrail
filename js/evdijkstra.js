@@ -1,21 +1,3 @@
-// evdijkstra.js
-//
-// modified dijkstra algorithm
-// for EV route planning
-//
-// unlike normal dijkstra,
-// this version also checks:
-//
-// - battery percentage
-// - total vehicle range
-// - reserve threshold
-//
-// if battery goes below threshold,
-// that path is ignored.
-//
-// goal:
-// shortest FEASIBLE path
-
 class EVDijkstra
 {
     constructor(graph)

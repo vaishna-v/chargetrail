@@ -1,14 +1,3 @@
-// graph.js
-//
-// adjacency list graph
-//
-// graph[node] = [
-//      [neighbour, weight],
-//      [neighbour, weight]
-// ]
-//
-// weight = road distance in km
-
 class Graph
 {
     constructor(maxVertices)

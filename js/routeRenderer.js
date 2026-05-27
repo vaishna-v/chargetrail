@@ -1,16 +1,7 @@
 // routeRenderer.js
-//
 // helper functions for route visualization
-//
 // right now map.js already draws routes,
-// but this file keeps route-related utilities
-// separate and cleaner.
-//
-// can be expanded later for:
-// - route animation
-// - charging station markers
-// - route colors
-// - alternate routes
+
 
 class RouteRenderer
 {

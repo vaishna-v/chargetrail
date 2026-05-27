@@ -8,8 +8,7 @@
 // - map
 // - ev dijkstra
 //
-// this is basically the "glue"
-// of the whole project
+
 
 // large enough number
 // graph only uses needed vertices

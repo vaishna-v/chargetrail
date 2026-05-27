@@ -1,7 +1,5 @@
 // utils.js
-//
-// miscellaneous helper functions
-//
+
 // currently contains:
 // - distance formatting
 // - battery formatting

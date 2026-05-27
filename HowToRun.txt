@@ -1,0 +1,38 @@
+ChargeTrail - How To Run
+
+
+STEP 1 - Download OSM Map File
+Download a .osm map file from:
+https://www.openstreetmap.org/export
+OR
+https://download.geofabrik.de/
+
+
+
+STEP 2 - Rename File
+Rename the downloaded file to:
+        roads.osm
+
+
+STEP 3 - Place File in Data Folder
+Paste the file inside:
+chargetrail/data/
+
+
+Final structure should look like:
+chartrail/
+│
+├── data/
+│   └── roads.osm
+│
+├── js/
+├── index.html
+└── style.css
+
+
+STEP 4 - Open Project in VS Code
+Right click on:
+index.html
+and select:
+"Open with Live Server" (ensure that you have installed "Live Server" extension on Visual Studio Code)
+The project should open in the browser.
