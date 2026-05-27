@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        EV Route Planner
+    </title>
+
+    <!-- leaflet css -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- custom css -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- sidebar -->
+    <div id="sidebar">
+
+        <h1>
+            EV Route Planner
+        </h1>
+
+        <p class="smallText">
+            click map to select source and destination
+        </p>
+
+        <hr>
+
+        <!-- process osm -->
+        <button id="processButton">
+            Process OSM
+        </button>
+
+        <p class="smallText">
+            converts roads.osm into roads.json
+        </p>
+
+        <hr>
+
+        <!-- battery -->
+        <label>
+            Current Battery (%)
+        </label>
+
+        <input
+            type="number"
+            id="batteryInput"
+            value="70"
+        >
+
+        <!-- range -->
+        <label>
+            Vehicle Range (km)
+        </label>
+
+        <input
+            type="number"
+            id="rangeInput"
+            value="250"
+        >
+
+        <!-- threshold -->
+        <label>
+            Reserve Threshold (km)
+        </label>
+
+        <input
+            type="number"
+            id="thresholdInput"
+            value="20"
+        >
+
+        <!-- route button -->
+        <button id="routeButton">
+            Compute Route
+        </button>
+
+        <hr>
+
+        <!-- outputs -->
+        <div class="resultBox">
+
+            <p>
+                Distance:
+                <span id="distanceOutput">
+                    --
+                </span>
+            </p>
+
+            <p>
+                Battery Left:
+                <span id="batteryOutput">
+                    --
+                </span>
+            </p>
+
+        </div>
+
+        <hr>
+
+        <p class="smallText">
+            supported area depends on downloaded osm region
+        </p>
+
+    </div>
+
+    <!-- leaflet map -->
+    <div id="map"></div>
+
+
+    <!-- leaflet js -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+
+    <!-- project files -->
+
+    <script src="js/graph.js"></script>
+
+    <script src="js/minheap.js"></script>
+
+    <script src="js/osmloader.js"></script>
+
+    <script src="js/dijkstra.js"></script>
+
+    <script src="js/evdijkstra.js"></script>
+
+    <script src="js/map.js"></script>
+
+    <script src="js/routeRenderer.js"></script>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
